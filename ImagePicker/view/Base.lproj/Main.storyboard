@@ -117,38 +117,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aT2-Bp-YXh">
-                                <rect key="frame" x="87.5" y="194" width="200" height="279"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z28-QT-6kb">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="79"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="79" id="h3O-Vi-tXP"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a5u-Om-Z4G">
-                                        <rect key="frame" x="0.0" y="79" width="200" height="200"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="MCG-8g-WOy"/>
-                                            <constraint firstAttribute="height" constant="200" id="VNO-5Y-mgC"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a5u-Om-Z4G">
+                                <rect key="frame" x="5" y="69" width="365" height="544"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="aT2-Bp-YXh" firstAttribute="centerX" secondItem="pIj-uY-esB" secondAttribute="centerX" id="4w1-bm-vjj"/>
-                            <constraint firstItem="aT2-Bp-YXh" firstAttribute="centerY" secondItem="pIj-uY-esB" secondAttribute="centerY" id="mn6-iM-LIu"/>
+                            <constraint firstItem="a5u-Om-Z4G" firstAttribute="top" secondItem="nJl-f0-cGg" secondAttribute="top" constant="5" id="PdU-7e-6eD"/>
+                            <constraint firstItem="nJl-f0-cGg" firstAttribute="bottom" secondItem="a5u-Om-Z4G" secondAttribute="bottom" constant="5" id="szj-sB-tAY"/>
+                            <constraint firstItem="a5u-Om-Z4G" firstAttribute="leading" secondItem="nJl-f0-cGg" secondAttribute="leading" constant="5" id="yUL-Ob-Ecw"/>
+                            <constraint firstItem="nJl-f0-cGg" firstAttribute="trailing" secondItem="a5u-Om-Z4G" secondAttribute="trailing" constant="5" id="zva-6W-NXw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nJl-f0-cGg"/>
                     </view>
                     <connections>
                         <outlet property="memeImage" destination="a5u-Om-Z4G" id="DOb-Om-7uy"/>
-                        <outlet property="memeLabel" destination="z28-QT-6kb" id="Tqn-gG-uz3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UmV-4Z-If7" userLabel="First Responder" sceneMemberID="firstResponder"/>
