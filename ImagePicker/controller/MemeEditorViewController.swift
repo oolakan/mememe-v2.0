@@ -22,7 +22,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        configure(textfield: topTextFields, withText: "TOP TEXT")
+        configure(textfield: bottomTextFields, withText: "BOTTOM TETX")
     }
     // check if camera is avaible on device
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +37,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         unsubscribeFromKeyboardNotifications()
     }
     
-    fileprivate func configure() {
+    fileprivate func configure(textfield: UITextField, withText text: String) {
         // set text alignment to center
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
@@ -47,17 +48,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             NSAttributedStringKey.strokeWidth.rawValue: CGFloat(-4.5) /* TODO: fill in appropriate Float */,
             NSAttributedStringKey.paragraphStyle.rawValue: paragraph
         ]
-        self.topTextFields.delegate = self
-        self.bottomTextFields.delegate = self
-        
-       // self.navigationController?.isNavigationBarHidden = true
-        //disable share button on load
+        textfield.delegate = self
+        textfield.text = text
         self.shareBarBtn.isEnabled = false
-        self.topTextFields.backgroundColor = .clear
-        self.bottomTextFields.backgroundColor = .clear
-        
-        self.topTextFields.defaultTextAttributes = memeTextAttributes
-        self.bottomTextFields.defaultTextAttributes = memeTextAttributes
+        textfield.backgroundColor = .clear
+        textfield.defaultTextAttributes = memeTextAttributes
     }
     
     func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType) {
@@ -68,15 +63,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func pickAnImageFromAlbum(_ sender: Any) {
-        let sourceType: UIImagePickerControllerSourceType = .photoLibrary;
-        presentImagePickerWith(sourceType: sourceType)
+        presentImagePickerWith(sourceType: .photoLibrary)
     }
     
     
     // capture image from camera
     @IBAction func pickAnImageFromCamera(_ sender: Any)  {
-       let sourceType: UIImagePickerControllerSourceType = .camera
-       self.presentImagePickerWith(sourceType: sourceType)
+       self.presentImagePickerWith(sourceType: .camera)
     }
     
     
