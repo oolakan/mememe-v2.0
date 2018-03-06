@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var cancelBarBtn: UIBarButtonItem!
     @IBOutlet weak var shareBarBtn: UIBarButtonItem!
@@ -142,11 +142,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
    
     @objc func keyboardWillShow(_ notification:Notification) {
         if (bottomTextFields.isEditing) {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            self.view.frame.origin.y -= getKeyboardHeight(notification) - 40
         }
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
+        //Hide the top navigation bar
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y += getKeyboardHeight(notification)
         }

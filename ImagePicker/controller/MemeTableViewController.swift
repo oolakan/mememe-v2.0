@@ -42,7 +42,14 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
         cell.memeImage.image = meme.memedImage
         return cell
     }
-   
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var controller: MemeDetailViewController!
+        controller = self.storyboard?.instantiateViewController(withIdentifier: "memeDetailPage") as? MemeDetailViewController
+        controller.meme = (UIApplication.shared.delegate as! AppDelegate).memes[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
     @IBAction func createNewMemeObject(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "createNewMeme", sender: nil)
     }

@@ -39,6 +39,13 @@ class MemeCollectionViewController: UICollectionViewController {
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var controller: MemeDetailViewController!
+        controller = self.storyboard?.instantiateViewController(withIdentifier: "memeDetailPage") as? MemeDetailViewController
+        controller.meme = (UIApplication.shared.delegate as! AppDelegate).memes[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
     @IBAction func createNewMeme(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "createNewMeme", sender: nil)
     }
